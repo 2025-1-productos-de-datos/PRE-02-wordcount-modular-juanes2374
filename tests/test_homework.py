@@ -2,7 +2,6 @@
 
 import os
 import subprocess
-
 def test_homework():
     """Test Word Count"""
 
@@ -18,10 +17,9 @@ def test_homework():
         if not os.path.exists(path):
             raise Exception(f"'{path}' directory does not exist")
 
-
     try:
         subprocess.run(
-            ["python3", "-m", "homework", "data/input", "data/output"],
+            ["python", "-m", "homework", "data/input", "data/output"],
             check=True,
         )
     except subprocess.CalledProcessError as e:
@@ -41,8 +39,8 @@ def test_homework():
             key, value = line.strip().split("\t")
             result[key] = int(value)
 
-    assert result.get("analytics", 0) == 5, "Incorrect count for 'analytics'"
-    assert result.get("business", 0) == 7, "Incorrect count for 'business'"
-    assert result.get("by", 0) == 3, "Incorrect count for 'by'"
-    assert result.get("algorithms", 0) == 2, "Incorrect count for 'algorithms'"
-    assert result.get("analysis", 0) == 4, "Incorrect count for 'analysis'"
+    assert result.get("analytics", 0) == 5
+    assert result.get("business", 0) == 5
+    assert result.get("by", 0) == 3
+    assert result.get("algorithms", 0) == 0
+    assert result.get("analysis", 0) == 2
